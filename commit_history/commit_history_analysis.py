@@ -31,7 +31,7 @@ def author_analysis(df):
     print(commit_counts_others)
     
     # 绘制提交作者的饼状图
-    plt.figure(figsize=(8, 8))
+    plt.figure(figsize=(24, 24))
     commit_counts_others.plot.pie(autopct='%1.1f%%', startangle=90, cmap='Set3')
     plt.title("Commit Counts by Author")
     plt.ylabel('')
@@ -40,7 +40,7 @@ def author_analysis(df):
     plt.show()
 
     # 绘制提交作者的柱状图
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(20, 6))
     commit_counts_others.plot(kind='bar', color='skyblue')
     plt.title("Commit Counts by Author (Bar Chart)")
     plt.xlabel("Author")
@@ -64,7 +64,7 @@ def commit_date_analysis(df):
     print(daily_commits)
 
     # 绘制按日提交频率的折线图
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(30, 6))
     daily_commits.plot(kind='line', marker='o', linestyle='-')
     plt.title("Commit Frequency Over Time (Daily)")
     plt.xlabel("Date")
@@ -138,7 +138,7 @@ def commit_types_analysis(df):
     print(commit_types)
 
     # 绘制提交类型的分布柱状图
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(20, 6))
     commit_types.plot(kind='bar', color='skyblue')
     plt.title("Commit Types Distribution")
     plt.xlabel("Commit Type")
@@ -149,7 +149,7 @@ def commit_types_analysis(df):
     plt.show()
 
     # 绘制提交类型的饼状图
-    plt.figure(figsize=(8, 8))
+    plt.figure(figsize=(24, 24))
     commit_types.plot.pie(autopct='%1.1f%%', startangle=90, cmap='Set2')
     plt.title("Commit Types Distribution (Pie Chart)")
     plt.ylabel('')
