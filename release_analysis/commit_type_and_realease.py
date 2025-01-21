@@ -67,21 +67,11 @@ def plot_commit_types_with_releases(commit_data, release_data):
     :param commit_data: 提交历史数据
     :param release_data: release 数据
     """
-    plt.figure(figsize=(45, 6)) 
     # 按日统计每种提交类型的数量
     daily_commit_types = commit_data.groupby([commit_data['date'], 'commit_type']).size().unstack(fill_value=0)
     
-    # 为每种提交类型绘制一条折线
-    daily_commit_types.plot(kind='line', lw=2, colormap='tab10')
-    
-    # 在每个版本发布的日期上添加竖直虚线
-    for release in release_data.itertuples():
-        release_date = release.published_at
-        # 在发布版本的时间点添加竖直虚线
-        plt.axvline(x=release_date, color='red', linestyle='--', lw=2)
-        # 在虚线旁边标注版本号
-        plt.text(release_date, daily_commit_types.max().max() * 0.05, release.tag_name, color='red', rotation=90)
-
+   
+    plt.figure(figsize=(45, 6)) 
     # 设置图表的标题和标签
     plt.title("Commit Types Over Time with Release Versions")
     plt.xlabel("Date")
@@ -93,6 +83,17 @@ def plot_commit_types_with_releases(commit_data, release_data):
     plt.gca().xaxis.set_minor_locator(mdates.WeekdayLocator())
     plt.xticks(rotation=45)
     
+    # 在每个版本发布的日期上添加竖直虚线
+    for release in release_data.itertuples():
+        release_date = release.published_at
+        # 在发布版本的时间点添加竖直虚线
+        plt.axvline(x=release_date, color='red', linestyle='--', lw=2)
+        # 在虚线旁边标注版本号
+        plt.text(release_date, daily_commit_types.max().max() * 0.05, release.tag_name, color='red', rotation=90)
+    for commit_type in daily_commit_types:
+        daily_commit_types[commit_type].plot(label=commit_type)
+
+
     # 自动调整布局
     plt.tight_layout()
     
