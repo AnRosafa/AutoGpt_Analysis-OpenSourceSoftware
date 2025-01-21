@@ -1,3 +1,4 @@
+ID##author##date##introduction
 658493559d1839d14babfbbf9dd16bf03a530474##Swifty##2024-12-20##fix(store): Fixing add agent to library (#9098)
 6025506caec0b44d43c7f91f25ad90f392c5e544##Abhimanyu Yadav##2024-12-20##feat(store) : add new model and prompt in image generation (#9099)
 54f8d3b4dd618313dab432fc1770f5db7e32239d##Aarushi##2024-12-20##blocks(exa): Add more Exa blocks (#9097)
@@ -210,7 +211,7 @@ aaa0b79f084159233f8b65ce0daa806d8d71d3fe##Reinier van der Leer##2024-11-13##fix(
 e907ffda6e7ba145b4cd203ae5a6018532a835bb##Krzysztof Czerwinski##2024-11-12##feat(platform): Simplify Credentials UX (#8524)
 ef7e50403e25a904bc43a256a540f544e35a11aa##Zamil Majdy##2024-11-12##refactor(backend): Centralize Block Cost into a Single File (#8623)
 1e872406ca0ac5210885703e6442543b9bc89d40##Zamil Majdy##2024-11-12##feat(platform): Introduced Agent Execution Block (#8533)
-5ee909f687b07ac6a042296de3e68bb6c8d8f4b6##Abhimanyu Yadav##2024-11-12##fix: show error toast on Run failure when inputs or credentials are i鈥?(#8391)
+5ee909f687b07ac6a042296de3e68bb6c8d8f4b6##Abhimanyu Yadav##2024-11-12##fix: show error toast on Run failure when inputs or credentials are i�??(#8391)
 ff1fa2af2d3ba2943900dec4b9571e5e1e69b996##Nicholas Tindle##2024-11-11##[Snyk] Security upgrade zipp from 3.15.0 to 3.19.1 (#8622)
 ee3252bdb1cf820f53a4d31c7678aeacd344f9ab##dependabot[bot]##2024-11-12##build(deps): bump cookie from 0.7.0 to 1.0.1 in /autogpt_platform/frontend (#8616)
 4a8f3dbbb14741631ead81074d237b0ba07c141c##Nicholas Tindle##2024-11-11##[Snyk] Security upgrade urllib3 from 2.0.7 to 2.2.2 (#8620)
@@ -1288,7 +1289,7 @@ b106a61352d7a9f85bbaa693fed7fc114c5277f7##Reinier van der Leer##2023-11-21##Clea
 787c71a9de58103caefc58e6ff6940ab289ebb71##SwiftyOS##2023-11-16##update benchmarking workflow
 c4494d8c02bc5e27816e342de583c2fbfd1b46f3##Reinier van der Leer##2023-11-16##fix: Add data directory to lint exclusion list
 0b3aea92d197f46834860507e823d45bcb961c47##Reinier van der Leer##2023-11-16##fix: Improve parsing of JSON in LLM responses
-58292d59bcd2f293d4949ba3b241183e49d4e67e##鍏┈鍡峰椃鍡?#2023-11-16##songyalei entering the arena (#6259)
+58292d59bcd2f293d4949ba3b241183e49d4e67e##鍏┈鍡峰椃�??#2023-11-16##songyalei entering the arena (#6259)
 d33e7f8ba9f641762bf2cd8244cbede1081777d8##Craig##2023-11-16##Susan entering the arena (#6107)
 22fb0f7bbf1f4c7e87b0781867f8d45dab34025b##Kiran##2023-11-16##fix(cli): resolve warning caused by \w in regular string (#6236)
 60264d65db2ecd23e87843e3abe53e49f76466de##Reinier van der Leer##2023-11-16##Add fridge, project management labels to do-not-stale list for issues
@@ -1319,7 +1320,7 @@ abdf449aa5dbd736d0951d631eb6ebb2af9e19aa##Thiago Marafon##2023-11-03##TMarafon e
 c8fde2d4a4830e9164b8a015b7f0f71035516556##Abdul-Mujeeb Aliu##2023-11-03##podcast_agent entering the arena (#5996)
 8e4d545994d9247e71be8742a1f6ca0a5ce06629##gentaag##2023-11-03##YOU entering the arena (#6003)
 df415d1ce6484708282a29f42174bc29749c1bb6##gentaag##2023-11-03##N entering the arena (#6005)
-4be8a563c7bacf1f3c9c24c8feed42c839020941##Luka Duman膷i膰##2023-11-03##agent2 entering the arena (#6007)
+4be8a563c7bacf1f3c9c24c8feed42c839020941##Luka Duman膷i�?##2023-11-03##agent2 entering the arena (#6007)
 a0432c7aa1a276e627087ca4bf906dec7663480b##Nameless8243##2023-11-03##agentSmith entering the arena (#6012)
 52b935de90708a0d25b7981fad7e9350bbb684b6##Amah Ajavon##2023-11-03##ArtistManagerGPT entering the arena (#6013)
 e39d56781f8612091466cf141b9880dfca0b09f8##mtx-light##2023-11-03##coder_first entering the arena (#6015)
@@ -1332,7 +1333,7 @@ e9f2f9e5ed30e7f3fdb2a6f0b04d4252f993cfe5##mvuthegoat##2023-11-03##lilAgent enter
 1b524bd5d40144f7d84c640467bbba8922edac54##Yanniswein##2023-11-03##Jean-Michel entering the arena (#6029)
 4850dde27e058d193cef5ecda587982743eda632##Windii##2023-11-03##LbAgent entering the arena (#6030)
 f01679c4f65c8fb142d7d28b05fc60d94a939103##NAN##2023-11-03##NanAutoGPT entering the arena (#6031)
-a90e9e75c16e15a5432ec158f55685e618eda7e2##Rafa艂 Sk贸rka##2023-11-03##SkorkobaniecAgent entering the arena (#6035)
+a90e9e75c16e15a5432ec158f55685e618eda7e2##Rafa�? Sk贸rka##2023-11-03##SkorkobaniecAgent entering the arena (#6035)
 569cc101538e2fe99a19cfa4bd33d5c469007489##Michael Schumacher##2023-11-03##Derpmaster entering the arena (#6037)
 a329e7574828567125813683c21214899400d6aa##milog1994##2023-11-03##Arena submission project master2 (#6038)
 e01c082bb83a2d4b7033aa55f9806a0018afce02##Denis Zuev##2023-11-03##FLASH entering the arena (#6039)
@@ -1346,7 +1347,7 @@ ec815f50bf486290c0f44ed3574a5ad60cbeac58##Windii##2023-11-03##TheAgent entering 
 ec9eed672278476f19e19b59422844e796ff3f4e##Exstor##2023-11-03##agent_2 entering the arena (#6057)
 a662040043913cff9032fb729d885afa2f59fba8##dawn##2023-11-03##my_gpt entering the arena (#6061)
 15a5cc8b1726bdb3f977ea7e9d2c6704ffde18ce##David##2023-11-03##davidtestagent entering the arena (#6064)
-83c1a296da087c8e709d6ee15e0159436e312ce2##Filip Zori膰##2023-11-03##MarketResearcherEduRob entering the arena (#6065)
+83c1a296da087c8e709d6ee15e0159436e312ce2##Filip Zori�?##2023-11-03##MarketResearcherEduRob entering the arena (#6065)
 9137eb474c0022c100e19ccc6c8203c9bbbf1b16##David##2023-11-03##davidtest1 entering the arena (#6066)
 82fecfae1b4fb5d64050eefa77d8f028292aa8f3##Hugo Mastromauro da Silva##2023-11-03##CodeAutoGPT entering the arena (#6069)
 7cd4666b8ea4ba7d0a3c077c866c18dcf4bd616c##daviddhc20120601##2023-11-03##medical-agent entering the arena (#6084)
@@ -1506,7 +1507,7 @@ dae6ee2c4719add830e291f4aeef471f635a7457##SwiftyOS##2023-10-20##Removed unfinish
 b4588f6425912316e1512391e4392ca30d61e144##Reinier van der Leer##2023-10-19##Fix typo in exceptions.py (#5813)
 4b1e8f6e8b4186ec6563301c146fbf3425f92715##Donald Nwokoro##2023-10-19##Improved Documentation for Windows Users (#5410)
 2bbc3b9cbcb53070d347356512c4f0c218e4663f##Isayah Culbertson##2023-10-19##updated CLI-USAGE.md agents command to current agent command (#5805)
-9b3c6dec62b9296be245d176414c9af99082caf1##Rafa艂 艁azicki##2023-10-19##docs: fix typo in QUICKSTART.md (#5700)
+9b3c6dec62b9296be245d176414c9af99082caf1##Rafa�? 艁azicki##2023-10-19##docs: fix typo in QUICKSTART.md (#5700)
 1559b5dfdd414555a6e3522bc09878d516d5b308##bsenst##2023-10-19##fix typo (#5715)
 9ae284e88595bcd9c42f89e40521f0888938b43a##Mike DuPont##2023-10-19##typo Heisenberg.json (#5720)
 252975368420735afed945aba668ae145a2dfe04##SnowYoung##2023-10-19##stockAgent entering the arena (#5816)
@@ -1667,7 +1668,7 @@ a81de65912032d4d927d143e52ba7ebbfdffe565##miaowacao##2023-10-17##teacher enterin
 76e15ee1ba676f1ae6f73f15fd9cd3ab4bb093fe##Nikhil Mishra##2023-10-16##Auto entering the arena (#5766)
 837b071525a5629288d6afb4b1a2af0e963a5c45##Jimcau##2023-10-16##Raslebot entering the arena (#5767)
 454e761f98b277ef292042e22ebd825eb03e5f3a##Janek Dijkstra##2023-10-16##ExampleAgent entering the arena (#5768)
-9ea973e9e9e99f9a2cef27b784e3fd216590ae2f##鍗佷笁##2023-10-17##UmaruAgent entering the arena (#5769)
+9ea973e9e9e99f9a2cef27b784e3fd216590ae2f##鍗佷�?##2023-10-17##UmaruAgent entering the arena (#5769)
 2f79caa6b901d006a78c1ac9e69db4465c0f971a##sanjeevsaara##2023-10-16##searchagent entering the arena (#5758)
 04d7deeae39ebe619638d104dab75bb67ed3eace##Reinier van der Leer##2023-10-15##Merge branch 'master' into autogpt/agent-protocol
 521305f8e9e7ccd4052794958245dc51ec0b2a50##Reinier van der Leer##2023-10-14##Fix typing of @coroutine decorator
@@ -4280,7 +4281,7 @@ f424fac1d8b734356dccb6ce7a58bd34f34ec654##Kory Becker##2023-05-16##Huggingface r
 c1cd54d1ea980150aa999676dc038210b2530d36##Stefan Ayala##2023-05-16##Allow absolute paths if contained in workspace (#3932)
 0839a16d2772d1fead0ed1e9c87c85e28e9eae30##Cenny##2023-05-16##Clarify .env.template image-provider options (#3720)
 cb2b13dff63286fdef13edb84bbf49b1e5e44025##Nicholas Tindle##2023-05-16##Legal warning on continuous run (#4239)
-85fe6f36c2e5900d40de00bbf400ddc32c8cee46##Malahieude Timoth茅##2023-05-16##Fix ai_name not passed to Agent (#3948)
+85fe6f36c2e5900d40de00bbf400ddc32c8cee46##Malahieude Timoth�?##2023-05-16##Fix ai_name not passed to Agent (#3948)
 517c0805443cbf452cc8c161400b98d39f4533c0##merwanehamadi##2023-05-15##fix ci cassettes (#4234)
 c04f2210cc3aa341d53b8e714f53a8927ab6b476##gravelBridge##2023-05-15##Added feature to interrupt y -N continuous commands. (#4230)
 6c4426d8e654930c8c3e25fb30565c9cc768ed3d##merwanehamadi##2023-05-15##Refactor challenges to use cycle count instead of time (#4222)
@@ -4369,7 +4370,7 @@ a5f856328d1331129d3b578157242c8716c08870##sidewaysthought##2023-05-01##Fix multi
 9c56b1beef1362725cea0f2b98f0a46a4d728874##Ashutosh Kataria##2023-05-01##Message about Pinecone initializing (#1194)
 34261a15835390c5c464cef88c4a42b52a88b739##AbTrax##2023-05-01##Fix side effects on message history (#3619)
 d8968ae8990b4e50022c7d76fd37fad708f73814##Reinier van der Leer##2023-05-01##Update documentation URLs to docs.agpt.co (#3621)
-6ae90a3ea2a46f8df781aa1225bee6b1e02ca4dc##Valay Dave##2023-04-30##[bug] `list_files` api signature change in `data_ingestion.py` and lo鈥?(#3601)
+6ae90a3ea2a46f8df781aa1225bee6b1e02ca4dc##Valay Dave##2023-04-30##[bug] `list_files` api signature change in `data_ingestion.py` and lo�??(#3601)
 c317cf0e75d70c3b38eebe4b1a4855f9a28789d9##zyt600##2023-05-01##fix bug #3455 (#3591)
 c1329c92fde62bd09084f00dead1cf07845eea1e##Richard Beales##2023-04-30##rename search_files to list_files (#3595)
 abd6115aeaec9ba221f1a4117f7f1abc8aed8550##Toran Bruce Richards##2023-05-01##Add website to README.md
@@ -4498,7 +4499,7 @@ a38646409fb666d6fb515712c29f11c5af7a5f0b##Didier Durand##2023-04-23##Documentati
 9ed2a7a2d24c21968137ad2e51cd36144179fcf9##Richard Beales##2023-04-23##Add missing test decorator (#2989)
 eaa6ed85e1a6f6aaadaf1608e03a60b062a38656##Richard Beales##2023-04-23##Fix to prompt generator - "Ensure the response can beparsed" (#2980)
 0b08b4f1c5babf7c23b25545930eeb36705e3cc3##Nicholas Tindle##2023-04-23##Update installation.md (#2970)
-bb786461c76022873eb770802e0bb5dd914cbba0##Richard Beales##2023-04-23##Mark test test_generate_aiconfig_automatic_typical  as @requires_api_鈥?(#2981)
+bb786461c76022873eb770802e0bb5dd914cbba0##Richard Beales##2023-04-23##Mark test test_generate_aiconfig_automatic_typical  as @requires_api_�??(#2981)
 bc354a3df6cb1d462840689b02e6bb7c65362cd1##Didier Durand##2023-04-23##Documentation typo: serach -> search (#2977)
 f462674e32279f383a4d34f2307709566c4a975f##Toran Bruce Richards##2023-04-23##Automatic prompting (#2896)
 2b5852f7daf83e07ec87538f239c9bc6064d2bad##Media##2023-04-23##Tests utils suite  (#2961)
