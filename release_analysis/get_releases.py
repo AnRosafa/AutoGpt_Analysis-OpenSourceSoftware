@@ -33,8 +33,6 @@ def save_releases_to_csv(releases, filename):
             "tag_name": release.get("tag_name"),
             "name": release.get("name"),
             "published_at": release.get("published_at"),
-            "body": release.get("body"),  # 发布说明
-            "assets_count": len(release.get("assets", []))  # 关联的资源数量
         }
         release_data.append(release_info)
     
