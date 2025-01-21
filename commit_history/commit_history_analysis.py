@@ -160,6 +160,39 @@ def commit_types_analysis(df):
     # 返回提交类型统计信息
     return commit_types
 
+
+def commit_counts_over_time_by_top_authors(df):
+    """
+    绘制提交量前十名作者的提交数随时间（月度）变化的折线图
+    """
+    print("\n分析提交量前十名作者的提交数随时间变化...")
+
+    # 选取提交次数前10的作者
+    top_authors = df['author'].value_counts().head(10).index
+
+    # 创建一个DataFrame来存储每个作者每月的提交次数
+    df['month'] = df['date'].dt.to_period('M')
+    
+    # 按月和作者统计提交次数
+    monthly_commit_counts = df[df['author'].isin(top_authors)].groupby(['month', 'author']).size().unstack(fill_value=0)
+
+    print("提交量前十名作者的提交数随时间变化：")
+    print(monthly_commit_counts)
+
+    # 绘制折线图
+    plt.figure(figsize=(12, 8))
+    for author in top_authors:
+        monthly_commit_counts[author].plot(label=author)
+
+    plt.title("Commit Counts by Top 10 Authors Over Time (Monthly)")
+    plt.xlabel("Month")
+    plt.ylabel("Number of Commits")
+    plt.legend(title="Authors", bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.savefig("top_10_authors_commit_over_time.png")  # 保存图像
+    plt.show()
+
 def save_results(commit_counts, commit_types):
     # 保存统计结果到文件
     print("\n保存分析结果到文件...")
@@ -189,6 +222,9 @@ def main():
     # 提交类型分析
     commit_types = commit_types_analysis(df)
     
+    #前十名提交者提交趋势
+    commit_counts_over_time_by_top_authors(df)
+
     # 保存结果
     save_results(commit_counts, commit_types)
 
