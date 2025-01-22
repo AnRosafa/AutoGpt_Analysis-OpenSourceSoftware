@@ -71,7 +71,7 @@ def plot_commit_types_with_releases(commit_data, release_data):
     daily_commit_types = commit_data.groupby([commit_data['date'], 'commit_type']).size().unstack(fill_value=0)
     
    
-    plt.figure(figsize=(45, 6)) 
+    plt.figure(figsize=(30, 12)) 
     # 设置图表的标题和标签
     plt.title("Commit Types Over Time with Release Versions")
     plt.xlabel("Date")
