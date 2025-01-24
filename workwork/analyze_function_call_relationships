@@ -1,0 +1,26 @@
+# 第十阶段：分析函数调用关系
+def analyze_function_call_relationships():
+    project_path = "./Auto-GPT"
+    call_graph = {}
+    for root, dirs, files in os.walk(project_path):
+        for file in files:
+            file_extension = os.path.splitext(file)[1]
+            if file_extension == '.py':
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, 'r') as f:
+                        content = f.read()
+                        module = ast.parse(content)
+                        for node in ast.walk(module):
+                            if isinstance(node, ast.FunctionDef):
+                                func_name = node.name
+                                call_graph[func_name] = []
+                                for sub_node in ast.walk(node):
+                                    if isinstance(sub_node, ast.Call):
+                                        if isinstance(sub_node.func, ast.Name):
+                                            call_graph[func_name].append(sub_node.func.id)
+                except Exception as e:
+                    print(f"分析 {file_path} 时出错: {e}")
+    print("\n函数调用关系分析:")
+    for func, calls in call_graph.items():
+        print(f"{func} 调用了: {calls}")
