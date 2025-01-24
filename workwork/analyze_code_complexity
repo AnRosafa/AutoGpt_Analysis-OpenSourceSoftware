@@ -1,0 +1,28 @@
+# 第五阶段：分析代码复杂度（使用简单的圈复杂度估算）
+def analyze_code_complexity():
+    project_path = "./Auto-GPT"
+    complexity_scores = {}
+    for root, dirs, files in os.walk(project_path):
+        for file in files:
+            file_extension = os.path.splitext(file)[1]
+            if file_extension == '.py':
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, 'r') as f:
+                        content = f.readlines()
+                        complexity_score = 0
+                        indent_level = 0
+                        for line in content:
+                            stripped_line = line.strip()
+                            if stripped_line.startswith('def'):
+                                complexity_score += 1
+                            elif stripped_line.startswith('if') or stripped_line.startswith('elif') or stripped_line.startswith('else') or stripped_line.startswith('for') or stripped_line.startswith('while'):
+                                indent_level += 1
+                            elif stripped_line.endswith(':'):
+                                indent_level -= 1
+                        complexity_scores[file_path] = complexity_score
+                except Exception as e:
+                    print(f"分析 {file_path} 时出错: {e}")
+    print("\n代码复杂度统计:")
+    for file_path, score in complexity_scores.items():
+        print(f"{file_path}: 圈复杂度得分 {score}")
