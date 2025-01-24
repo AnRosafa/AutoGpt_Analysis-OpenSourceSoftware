@@ -1,0 +1,24 @@
+# 第八阶段：分析代码重复度
+def analyze_code_duplication():
+    project_path = "./Auto-GPT"
+    code_blocks = []
+    for root, dirs, files in os.walk(project_path):
+        for file in files:
+            file_extension = os.path.splitext(file)[1]
+            if file_extension == '.py':
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, 'r') as f:
+                        content = f.readlines()
+                        code_blocks.append(''.join(content))
+                except Exception as e:
+                    print(f"读取 {file_path} 时出错: {e}")
+    duplicates = []
+    for i in range(len(code_blocks)):
+        for j in range(i + 1, len(code_blocks)):
+            s = difflib.SequenceMatcher(None, code_blocks[i], code_blocks[j])
+            if s.ratio() > 0.8:  # 相似度阈值设为 80%
+                duplicates.append((i, j, s.ratio()))
+    print("\n代码重复度分析:")
+    for dup in duplicates:
+        print(f"代码块 {dup[0]} 和 {dup[1]} 相似度为 {dup[2]:.2f}")
