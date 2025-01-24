@@ -1,0 +1,7 @@
+# 第一阶段：克隆 AutoGpt 项目
+def clone_autogpt():
+    try:
+        subprocess.run(["git", "clone", "https://github.com/Significant-Gravitas/Auto-GPT.git"], check=True)
+        print("AutoGpt 项目克隆成功！")
+    except subprocess.CalledProcessError as e:
+        print(f"克隆项目时出错: {e}")
