@@ -1,0 +1,17 @@
+# 第二阶段：分析项目文件结构
+def analyze_file_structure():
+    project_path = "./Auto-GPT"
+    file_types = Counter()
+    dir_depth = Counter()
+    for root, dirs, files in os.walk(project_path):
+        depth = root.count(os.sep)
+        dir_depth[depth] += 1
+        for file in files:
+            file_extension = os.path.splitext(file)[1]
+            file_types[file_extension] += 1
+    print("文件类型统计:")
+    for ext, count in file_types.items():
+        print(f"{ext}: {count}")
+    print("\n目录深度统计:")
+    for depth, count in dir_depth.items():
+        print(f"深度 {depth}: {count} 个目录")
