@@ -1,0 +1,9 @@
+# 第六阶段：检查代码风格（使用 pycodestyle 库）
+def check_code_style():
+    try:
+        import pycodestyle
+        style_guide = pycodestyle.StyleGuide()
+        result = style_guide.check_files(['./Auto-GPT'])
+        print(f"代码风格检查结果: {result.messages}")
+    except ImportError:
+        print("请先安装 pycodestyle 库: pip install pycodestyle")
