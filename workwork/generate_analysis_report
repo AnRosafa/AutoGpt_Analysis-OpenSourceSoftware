@@ -1,0 +1,54 @@
+# 第七阶段：生成分析报告
+def generate_analysis_report():
+    report = {}
+    project_path = "./Auto-GPT"
+    file_types = Counter()
+    dir_depth = Counter()
+    function_counts = Counter()
+    class_counts = Counter()
+    comment_counts = Counter()
+    complexity_scores = {}
+    for root, dirs, files in os.walk(project_path):
+        depth = root.count(os.sep)
+        dir_depth[depth] += 1
+        for file in files:
+            file_extension = os.path.splitext(file)[1]
+            file_types[file_extension] += 1
+            if file_extension == '.py':
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, 'r') as f:
+                        content = f.read()
+                        module = ast.parse(content)
+                        for node in ast.walk(module):
+                            if isinstance(node, ast.FunctionDef):
+                                function_counts[node.name] += 1
+                            elif isinstance(node, ast.ClassDef):
+                                class_counts[node.name] += 1
+                        single_line_comments = len(re.findall(r'#.*', content))
+                        multi_line_comments = len(re.findall(r'""".*?"""', content, re.DOTALL))
+                        comment_counts["single_line"] += single_line_comments
+                        comment_counts["multi_line"] += multi_line_comments
+                        complexity_score = 0
+                        indent_level = 0
+                        lines = content.splitlines()
+                        for line in lines:
+                            stripped_line = line.strip()
+                            if stripped_line.startswith('def'):
+                                complexity_score += 1
+                            elif stripped_line.startswith('if') or stripped_line.startswith('elif') or stripped_line.startswith('else') or stripped_line.startswith('for') or stripped_line.startswith('while'):
+                                indent_level += 1
+                            elif stripped_line.endswith(':'):
+                                indent_level -= 1
+                        complexity_scores[file_path] = complexity_score
+                except Exception as e:
+                    print(f"分析 {file_path} 时出错: {e}")
+    report["file_types"] = dict(file_types)
+    report["dir_depth"] = dict(dir_depth)
+    report["function_counts"] = dict(function_counts)
+    report["class_counts"] = dict(class_counts)
+    report["comment_counts"] = dict(comment_counts)
+    report["complexity_scores"] = complexity_scores
+    with open("autogpt_analysis_report.json", "w") as f:
+        json.dump(report, f, indent=4)
+    print("分析报告已生成: autogpt_analysis_report.json")
