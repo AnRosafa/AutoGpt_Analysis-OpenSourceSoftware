@@ -1,0 +1,22 @@
+# 第十一阶段：分析异常处理
+def analyze_exception_handling():
+    project_path = "./Auto-GPT"
+    exception_counts = Counter()
+    for root, dirs, files in os.walk(project_path):
+        for file in files:
+            file_extension = os.path.splitext(file)[1]
+            if file_extension == '.py':
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, 'r') as f:
+                        content = f.read()
+                        exception_matches = re.findall(r'try:\s*(.*?)\s*except\s*(.*?):', content, re.DOTALL)
+                        for match in exception_matches:
+                            try_block = match[0].strip()
+                            except_block = match[1].strip()
+                            exception_counts[(try_block, except_block)] += 1
+                except Exception as e:
+                    print(f"分析 {file_path} 时出错: {e}")
+    print("\n异常处理分析:")
+    for (try_block, except_block), count in exception_counts.items():
+        print(f"Try 块: {try_block}\nExcept 块: {except_block}\n出现次数: {count}\n")
