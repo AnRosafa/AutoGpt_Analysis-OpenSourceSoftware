@@ -1,0 +1,13 @@
+if __name__ == "__main__":
+    clone_autogpt()
+    analyze_file_structure()
+    analyze_code_functions_classes()
+    analyze_code_comments()
+    analyze_code_complexity()
+    check_code_style()
+    analyze_code_duplication()
+    analyze_module_dependencies()
+    analyze_function_call_relationships()
+    analyze_exception_handling()
+    profile_code_performance()
+    generate_detailed_analysis_report()
