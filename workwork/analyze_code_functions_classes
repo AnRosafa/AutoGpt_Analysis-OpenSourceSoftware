@@ -1,0 +1,27 @@
+# 第三阶段：分析代码文件中的函数和类
+def analyze_code_functions_classes():
+    project_path = "./Auto-GPT"
+    function_counts = Counter()
+    class_counts = Counter()
+    for root, dirs, files in os.walk(project_path):
+        for file in files:
+            file_extension = os.path.splitext(file)[1]
+            if file_extension == '.py':
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, 'r') as f:
+                        content = f.read()
+                        module = ast.parse(content)
+                        for node in ast.walk(module):
+                            if isinstance(node, ast.FunctionDef):
+                                function_counts[node.name] += 1
+                            elif isinstance(node, ast.ClassDef):
+                                class_counts[node.name] += 1
+                except Exception as e:
+                    print(f"解析 {file_path} 时出错: {e}")
+    print("\n函数统计:")
+    for func, count in function_counts.items():
+        print(f"{func}: {count} 次")
+    print("\n类统计:")
+    for cls, count in class_counts.items():
+        print(f"{cls}: {count} 次")
