@@ -1,0 +1,13 @@
+# 第十二阶段：性能分析（使用 cProfile 分析函数执行时间）
+def profile_code_performance():
+    import cProfile
+    import pstats
+    project_path = "./Auto-GPT"
+    def run_sample_code():
+        # 这里需要你根据 AutoGpt 中的实际代码修改，以下是一个示例
+        def sample_function():
+            time.sleep(1)
+        sample_function()
+    cProfile.runctx('run_sample_code()', globals(), locals(), 'profile_results')
+    p = pstats.Stats('profile_results')
+    p.strip_dirs().sort_stats('time').print_stats()
