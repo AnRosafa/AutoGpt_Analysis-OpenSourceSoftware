@@ -1,0 +1,21 @@
+# 第四阶段：分析代码文件中的注释
+def analyze_code_comments():
+    project_path = "./Auto-GPT"
+    comment_counts = Counter()
+    for root, dirs, files in os.walk(project_path):
+        for file in files:
+            file_extension = os.path.splitext(file)[1]
+            if file_extension == '.py':
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, 'r') as f:
+                        content = f.read()
+                        single_line_comments = len(re.findall(r'#.*', content))
+                        multi_line_comments = len(re.findall(r'""".*?"""', content, re.DOTALL))
+                        comment_counts["single_line"] += single_line_comments
+                        comment_counts["multi_line"] += multi_line_comments
+                except Exception as e:
+                    print(f"分析 {file_path} 时出错: {e}")
+    print("\n注释统计:")
+    for comment_type, count in comment_counts.items():
+        print(f"{comment_type}: {count} 条")
