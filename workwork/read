@@ -1,0 +1,86 @@
+import git
+import csv
+import matplotlib.pyplot as plt
+import pandas as pd
+from collections import Counter
+import matplotlib.dates as mdates
+
+# 定义获取提交历史并保存为 CSV 文件的函数
+def get_commit_history(repo_path, output_csv):
+    # 打开本地 Git 仓库
+    repo = git.Repo(repo_path)
+    
+    # 获取所有提交
+    commits = list(repo.iter_commits('main'))  # 'main' 是主分支名称
+    
+    # 准备数据
+    commit_data = []
+    for commit in commits:
+        commit_data.append({
+            'Commit Hash': commit.hexsha,
+            'Author': commit.author.name,
+            'Date': commit.committed_datetime,
+            'Message': commit.message.strip()
+        })
+    
+    # 保存为 CSV 文件
+    with open(output_csv, 'w', newline='') as csvfile:
+        fieldnames = ['Commit Hash', 'Author', 'Date', 'Message']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        
+        writer.writeheader()
+        for row in commit_data:
+            writer.writerow(row)
+
+# 统计每位作者的提交数
+def plot_author_commit_count(csv_file):
+    # 读取提交历史数据
+    df = pd.read_csv(csv_file)
+    
+    # 统计每位作者的提交数
+    author_counts = Counter(df['Author'])
+    
+    # 绘制饼状图
+    labels = author_counts.keys()
+    sizes = author_counts.values()
+    
+    plt.figure(figsize=(7, 7))
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
+    plt.title("Commits by Author")
+    plt.axis('equal')  # 确保饼状图是圆形
+    plt.show()
+
+# 绘制提交数随时间变化的折线图
+def plot_commits_over_time(csv_file):
+    # 读取提交历史数据
+    df = pd.read_csv(csv_file)
+    
+    # 将日期转换为 datetime 对象
+    df['Date'] = pd.to_datetime(df['Date'])
+    
+    # 按日期分组并统计每个日期的提交数
+    commits_per_day = df.groupby(df['Date'].dt.date).size()
+    
+    # 绘制折线图
+    plt.figure(figsize=(10, 6))
+    commits_per_day.plot(kind='line')
+    plt.title("Commits Over Time")
+    plt.xlabel("Date")
+    plt.ylabel("Number of Commits")
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+    plt.gca().xaxis.set_major_locator(mdates.WeekdayLocator(interval=1))
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+# 主程序
+if __name__ == "__main__":
+    repo_path = '/path/to/AutoGpt'  # 你的 AutoGpt 项目路径
+    output_csv = 'commit_history.csv'  # 保存提交历史的 CSV 文件
+    
+    # 获取提交历史并保存为 CSV
+    get_commit_history(repo_path, output_csv)
+    
+    # 绘制提交历史图表
+    plot_author_commit_count(output_csv)
+    plot_commits_over_time(output_csv)
