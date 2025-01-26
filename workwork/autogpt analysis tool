@@ -1,0 +1,54 @@
+import requests
+import pandas as pd
+import matplotlib.pyplot as plt
+from datetime import datetime
+
+def fetch_commit_data(repo_owner, repo_name):
+    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/commits"
+    commits = []
+    page = 1
+    while True:
+        response = requests.get(url, params={"per_page": 100, "page": page})
+        if response.status_code != 200:
+            print("Failed to fetch data.")
+            break
+        data = response.json()
+        if not data:
+            break
+        for commit in data:
+            commits.append({
+                "sha": commit["sha"],
+                "author": commit["commit"]["author"]["name"],
+                "date": commit["commit"]["author"]["date"]
+            })
+        page += 1
+    return pd.DataFrame(commits)
+
+def process_commit_data(df):
+    df["date"] = pd.to_datetime(df["date"])
+    df["year_month"] = df["date"].dt.to_period("M")
+    return df.groupby("year_month").size()
+
+def plot_commit_trend(commit_counts):
+    plt.figure(figsize=(10, 5))
+    commit_counts.plot(kind="bar", color="skyblue")
+    plt.title("Monthly Commit Activity")
+    plt.xlabel("Year-Month")
+    plt.ylabel("Number of Commits")
+    plt.xticks(rotation=45)
+    plt.grid(axis="y", linestyle="--", alpha=0.7)
+    plt.show()
+
+def main():
+    repo_owner = "Significant-Gravitas"
+    repo_name = "Auto-GPT"
+    print("Fetching commit data...")
+    df = fetch_commit_data(repo_owner, repo_name)
+    if not df.empty:
+        commit_counts = process_commit_data(df)
+        plot_commit_trend(commit_counts)
+    else:
+        print("No commit data retrieved.")
+
+if __name__ == "__main__":
+    main()
