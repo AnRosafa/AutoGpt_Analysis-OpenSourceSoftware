@@ -1,0 +1,7 @@
+circle, triangle, square = z3.Ints("circle triangle square")
+solver = z3.Solver()
+solver.add(circle + circle == 10)
+solver.add(circle * square + square == 12)
+solver.add(circle * square - triangle * circle == circle)
+if solver.check() == z3.sat:
+    print(solver.model()[triangle])
